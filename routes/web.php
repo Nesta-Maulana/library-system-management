@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -53,7 +54,7 @@ Route::group(['middleware' => ['web', 'auth', 'verified']], function () {
         Route::get('/',[PelatihanController::class,'index'])->name('cso.dashboard');
     });
 
-    Route::resource('author', UserManagementController::class)->only('index', 'store', 'update', 'destroy');
+    Route::resource('author', AuthorController::class)->only('index', 'store', 'update', 'destroy');
 
 
 });
