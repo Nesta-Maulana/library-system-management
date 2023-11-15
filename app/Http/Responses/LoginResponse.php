@@ -10,19 +10,12 @@ class LoginResponse implements LoginResponseContract
 
     public function toResponse($request)
     {
-        switch (Auth::user()->roles->pluck('name')[0]) {
-            case 'Super Admin':
-                $route  = 'dashboard.index';
-            break;
-            case 'User':
-                $route  = 'cso.dashboard';
-            break;
-        }
+        $route = 'dashboard.index';
         return $request->wantsJson()
-                    ? response()->json(['two_factor' => false])
-                    : redirect()->intended(
-                        route($route)
-                    );
+            ? response()->json(['two_factor' => false])
+            : redirect()->intended(
+                route($route)
+            );
     }
 
 }
