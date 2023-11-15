@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
@@ -85,4 +87,21 @@ class UserManagementController extends Controller
             ? back()->with('success', 'User has been deleted successfully!')
             : back()->with('failed', 'User was not deleted successfully!');
     }
+
+    public function changePassword(Request $request)
+    {
+        $id             = Auth::user()->id;
+        $user_password  = Hash::make($request->new_password);
+        $update         = User::where('id',$id)->update([
+            'password'  => $user_password
+        ]);
+        if ($update) {
+            return back()->with('success', 'Password has been updated successfully!');
+        }
+        else{
+            return back()->with('failed', 'Password was not updated successfully!');
+        }
+    }
+
+
 }

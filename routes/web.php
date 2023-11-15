@@ -34,7 +34,6 @@ Route::permanentRedirect('/', '/login');
 
 Route::group(['middleware' => ['web', 'auth', 'verified']], function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
-    // Route::name('admin.dashboard')->get('dashboard', [DashboardController::class, 'index']);
     Route::resource('user', UserManagementController::class)->only('index', 'store', 'update', 'destroy');
     Route::prefix('user')->group(function () {
         Route::resource('profile', UserProfileController::class)->only('index');
@@ -58,5 +57,6 @@ Route::group(['middleware' => ['web', 'auth', 'verified']], function () {
     Route::resource('author', AuthorController::class)->only('index', 'store', 'update', 'destroy');
     Route::resource('book', BookController::class)->only('index', 'store', 'update', 'destroy');
 
+    Route::post('change-password',[UserManagementController::class,'changePassword'])->name('change-password');
 
 });

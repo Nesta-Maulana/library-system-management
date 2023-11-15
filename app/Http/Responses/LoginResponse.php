@@ -12,7 +12,7 @@ class LoginResponse implements LoginResponseContract
     {
         switch (Auth::user()->roles->pluck('name')[0]) {
             case 'Super Admin':
-                $route  = 'admin.dashboard';
+                $route  = 'dashboard.index';
             break;
             case 'User':
                 $route  = 'cso.dashboard';
