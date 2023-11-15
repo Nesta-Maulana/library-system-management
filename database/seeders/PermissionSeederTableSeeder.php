@@ -68,5 +68,17 @@ class PermissionSeederTableSeeder extends Seeder
         Permission::create(['name' => 'permission_store']);
         Permission::create(['name' => 'permission_update']);
         Permission::create(['name' => 'permission_destroy']);
+
+        // Author Management
+        Permission::create(['name' => 'author_index']);
+        Permission::create(['name' => 'author_store']);
+        Permission::create(['name' => 'author_update']);
+        Permission::create(['name' => 'author_destroy']);
+
+        // Book Management
+        Permission::create(['name' => 'book_index']);
+        Permission::create(['name' => 'book_store']);
+        Permission::create(['name' => 'book_update']);
+        Permission::create(['name' => 'book_destroy']);
     }
 }

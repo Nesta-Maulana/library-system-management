@@ -28,5 +28,21 @@ class MenuGeneralSeederTableSeeder extends Seeder
             'menu_group_id' => $general->id,
             'posision' => 1,
         ]);
+        MenuItem::create([
+            'name' => 'Author Management',
+            'icon' => 'ri-user-star-line',
+            'route' => 'author.index',
+            'permission_name' => 'author_index',
+            'menu_group_id' => $general->id,
+            'posision' => 2,
+        ]);
+        MenuItem::create([
+            'name' => 'Book Management',
+            'icon' => 'ri-book-3-fill',
+            'route' => 'book.index',
+            'permission_name' => 'book_index',
+            'menu_group_id' => $general->id,
+            'posision' => 3,
+        ]);
     }
 }

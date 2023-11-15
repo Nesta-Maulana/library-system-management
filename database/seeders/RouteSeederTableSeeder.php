@@ -162,5 +162,41 @@ class RouteSeederTableSeeder extends Seeder
                 'permission_name' => 'permission_destroy'
             ],
         ]);
+        Route::insert([
+            [
+                'route' => 'author.index',
+                'permission_name' => 'author_index'
+            ],
+            [
+                'route' => 'author.store',
+                'permission_name' => 'author_store'
+            ],
+            [
+                'route' => 'author.update',
+                'permission_name' => 'author_update'
+            ],
+            [
+                'route' => 'author.destroy',
+                'permission_name' => 'author_destroy'
+            ],
+        ]);
+        Route::insert([
+            [
+                'route' => 'book.index',
+                'permission_name' => 'book_index'
+            ],
+            [
+                'route' => 'book.store',
+                'permission_name' => 'book_store'
+            ],
+            [
+                'route' => 'book.update',
+                'permission_name' => 'book_update'
+            ],
+            [
+                'route' => 'book.destroy',
+                'permission_name' => 'book_destroy'
+            ],
+        ]);
     }
 }
